@@ -27,6 +27,10 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  register(user: User) {
+    return this.http.post(`${this.config.apiURL}/register`, user);
+  }
+
   login(email: string, password: string) {
     return this.http.post<any>(`${this.config.apiURL}/login`, { email, password })
       .pipe(map(user => {
