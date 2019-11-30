@@ -1,6 +1,7 @@
 export class User {
     private _id: string;
     private _email: string;
+    private _password: string;
     private _username: string;
     private _role: string;
     private _token?: string;
@@ -12,6 +13,9 @@ export class User {
 
     get email(): string { return this._email; }
     set email(email: string) { this._email = email; }
+
+    get password(): string { return this._password; }
+    set password(password: string) { this._password = password; }
 
     get username(): string { return this._username; }
     set username(username: string) { this._username = username; }
