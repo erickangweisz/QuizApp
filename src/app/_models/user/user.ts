@@ -3,6 +3,7 @@ export class User {
     private _email: string;
     private _username: string;
     private _role: string;
+    private _token?: string;
 
     constructor() {}
 
@@ -17,4 +18,7 @@ export class User {
 
     get role(): string { return this._role; }
     set role(role: string) { this._role = role; }
+
+    get token(): string { return this._token; }
+    set token(token: string) { this._token = token; }
 }
