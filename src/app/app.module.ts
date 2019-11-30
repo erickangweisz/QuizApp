@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { LandingComponent } from './components/landing/landing.component';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './_components';
+import { LoginComponent } from './_components';
+import { LandingComponent } from './_components';
+import { AdminDashboardComponent } from './_components';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     LoginComponent,
     LandingComponent,
-    AdminDashboardComponent,
-    NavbarComponent
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
