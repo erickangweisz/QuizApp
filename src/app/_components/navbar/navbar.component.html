@@ -6,7 +6,7 @@
     <li class="nav-item text-nowrap">
       <span *ngIf="!isLogged" class="nav-link pointer text-center" 
         data-toggle="modal" data-target="#loginModal">Sign in</span>
-      <span *ngIf="isLogged" class="nav-link pointer" 
+      <span *ngIf="isLogged" class="nav-link pointer text-center" 
         (click)="logout()">Log out</span>
     </li>
   </ul>
