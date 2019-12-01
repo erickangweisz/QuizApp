@@ -1,20 +1,28 @@
-<!-- REGISTER FORM -->
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"
     id="register-form" role="form" style="display: none;">
     <div class="form-group">
         <input formControlName="username" type="text" name="username" 
         id="username" class="form-control" placeholder="Username"
         [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
     </div>
     <div class="form-group">
         <input formControlName="email" type="email" name="email" 
         id="emailToRegister" class="form-control" placeholder="Email Address"
         [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
     </div>
     <div class="form-group">
         <input formControlName="password" type="password" name="password" 
         id="passwordToRegister" class="form-control" placeholder="Password"
         [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+        </div>
     </div>
 
     <div class="submit-error">{{ registerError }}</div>
