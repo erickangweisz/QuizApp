@@ -3,7 +3,25 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
+      <span class="nav-link pointer" data-toggle="modal" data-target="#loginModal">Sign in</span>
     </li>
   </ul>
 </nav>
+<br>
+
+<!-- LoginModal -->
+<div class="modal" id="loginModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+
+    </div>
+  </div>
+</div>
