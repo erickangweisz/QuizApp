@@ -14,7 +14,7 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     canActivate: [AuthGuard]
   },
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'landing' }
 ];
 
 @NgModule({

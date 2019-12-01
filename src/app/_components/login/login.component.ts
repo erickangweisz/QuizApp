@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-        return;
+      return;
     }
 
     this.authenticationService.login(this.f.email.value, this.f.password.value)
@@ -62,5 +62,4 @@ export class LoginComponent implements OnInit {
               this.loading = false;
             });
   }
-
 }

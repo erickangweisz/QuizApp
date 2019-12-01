@@ -5,17 +5,17 @@
 
     <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <input type="email" formControlName="email" id="login" name="login" placeholder="email">
+      <input type="email" formControlName="email" id="login" name="login" placeholder="Enter email">
       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">Email is required</div>
       </div>
 
-      <input type="password" formControlName="password" id="password" name="login" placeholder="password">
+      <input type="password" formControlName="password" id="password" name="login" placeholder="Enter password">
       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors.required">Password is required</div>
       </div>
 
-      <div>{{ loginError }}</div>
+      <div class="login-error">{{ loginError }}</div>
 
       <input type="submit" value="Log In">
     </form>

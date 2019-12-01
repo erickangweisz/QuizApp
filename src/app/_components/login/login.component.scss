@@ -2,16 +2,16 @@
 /* BASIC */
 
 html {
-    background-color: #56baed;
+    background-color: #232729;
 }
 
 h1 {
     margin: 30px 30px;
-    color:#60a0ff;
+    color:#232729;
 }
 
 a {
-    color: #92badd;
+    color: #232729;
     display:inline-block;
     text-decoration: none;
     font-weight: 400;
@@ -58,7 +58,7 @@ a {
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset] {
-    background-color: #56baed;
+    background-color: #444a4d;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -80,7 +80,7 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-    background-color: #39ace7;
+    background-color: #232729;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
@@ -114,11 +114,15 @@ input[type=email], input[type=password] {
 
 input[type=email]:focus, input[type=password]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #4c5153;
 }
 
 input[type=email]:placeholder, input[type=password]:placeholder {
     color: #cccccc;
+}
+
+.login-error {
+    margin-top: 15px;
 }
 
 /* Simple CSS3 Fade-in Animation */
@@ -128,13 +132,13 @@ input[type=email]:placeholder, input[type=password]:placeholder {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: #444a4d;
     content: "";
     transition: width 0.2s;
 }
 
 .underlineHover:hover {
-    color: #0d0d0d;
+    color: #444a4d;
 }
 
 .underlineHover:hover:after {
