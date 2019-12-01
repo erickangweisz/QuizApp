@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService,
-         AuthenticationService } from '../../_services';
+         AuthenticationService,
+         HandlerActiveFormService } from '../../_services';
 
 @Component({
   selector: 'app-register-form',
@@ -22,7 +23,8 @@ export class RegisterFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private handerActiveFormService: HandlerActiveFormService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -56,7 +58,7 @@ export class RegisterFormComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-              location.reload();
+              this.handerActiveFormService.activeLoginForm();
             },
             error => {
               this.registerError = error;

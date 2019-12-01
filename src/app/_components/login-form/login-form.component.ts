@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AlertService,
-         AuthenticationService } from '../../_services';
+         AuthenticationService,
+         HandlerActiveFormService } from '../../_services';
 
 declare const $: any;
 
@@ -25,7 +26,8 @@ export class LoginFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private handerActiveFormService: HandlerActiveFormService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -33,30 +35,18 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initActiveFormAnimation();
     this.initLoginFormValidator();
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
-  initActiveFormAnimation() {
-    $(() => {
-      $('#login-form-link').click(function(e) {
-        $('#login-form').delay(100).fadeIn(100);
-        $('#register-form').fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-      });
-      $('#register-form-link').click(function(e) {
-        $('#register-form').delay(100).fadeIn(100);
-        $('#login-form').fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-      });
-    });
+  activateRegisterForm(): void {
+    this.handerActiveFormService.activeRegisterForm();
+  }
+
+  activeLoginForm(): void {
+    this.handerActiveFormService.activeLoginForm();
   }
 
   initLoginFormValidator(): void {
@@ -69,7 +59,7 @@ export class LoginFormComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
     this.alertService.clear();
 
