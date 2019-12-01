@@ -6,6 +6,8 @@ import { first } from 'rxjs/operators';
 import { AlertService,
          AuthenticationService } from '../../_services';
 
+declare const $: any;
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -13,7 +15,7 @@ import { AlertService,
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
-  loading = false;
+
   submitted = false;
   returnUrl: string;
   loginError: string;
@@ -25,20 +27,43 @@ export class LoginFormComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {
-    // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
   }
 
   ngOnInit() {
+    this.initForm();
+    this.initLoginFormValidator();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+  }
+
+  initForm() {
+    $(() => {
+      $('#login-form-link').click(function(e) {
+        $('#login-form').delay(100).fadeIn(100);
+        $('#register-form').fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+      });
+      $('#register-form-link').click(function(e) {
+        $('#register-form').delay(100).fadeIn(100);
+        $('#login-form').fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+      });
+    });
+  }
+
+  initLoginFormValidator(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   // convenience getter for easy access to form fields
@@ -46,27 +71,21 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
-    // reset alerts on submit
     this.alertService.clear();
 
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
 
-    this.loading = true;
     this.authenticationService.login(this.f.email.value, this.f.password.value)
         .pipe(first())
         .subscribe(
             data => {
-              console.log(data);
               this.router.navigate([this.returnUrl]);
               location.reload();
             },
             error => {
               this.loginError = error;
-              this.loading = false;
             });
   }
 }
