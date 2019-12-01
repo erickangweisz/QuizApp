@@ -13,6 +13,7 @@ import { NavbarComponent } from './_components';
 import { LoginFormComponent } from './_components';
 import { LandingComponent } from './_components';
 import { AdminDashboardComponent } from './_components';
+import { RegisterFormComponent } from './_components';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { AdminDashboardComponent } from './_components';
     NavbarComponent,
     LoginFormComponent,
     LandingComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    RegisterFormComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
