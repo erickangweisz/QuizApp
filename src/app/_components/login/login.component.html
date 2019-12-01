@@ -4,9 +4,19 @@
     <h1>Quiz App</h1>
 
     <!-- Login Form -->
-    <form>
-      <input type="email" id="login" name="login" placeholder="email">
-      <input type="password" id="password" name="login" placeholder="password">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="email" formControlName="email" id="login" name="login" placeholder="email">
+      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+      </div>
+
+      <input type="password" formControlName="password" id="password" name="login" placeholder="password">
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+
+      <div>{{ loginError }}</div>
+
       <input type="submit" value="Log In">
     </form>
 
