@@ -10,7 +10,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './_components';
-import { LoginComponent } from './_components';
+import { LoginFormComponent } from './_components';
 import { LandingComponent } from './_components';
 import { AdminDashboardComponent } from './_components';
 
@@ -26,7 +26,7 @@ import { AdminDashboardComponent } from './_components';
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
+    LoginFormComponent,
     LandingComponent,
     AdminDashboardComponent
   ],
