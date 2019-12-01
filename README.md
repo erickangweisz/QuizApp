@@ -29,3 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Some sources
 
 - Angular 8 | User Registration and Login (https://jasonwatmore.com/post/2019/06/10/angular-8-user-registration-and-login-example-tutorial).
+
+- Bootstrap 4 Form Examples (https://bootsnipp.com/tags/registration)
+
+- Bootstrap 4 Accordions Customized (https://www.youtube.com/watch?v=t5pJ-SYCZa0)
