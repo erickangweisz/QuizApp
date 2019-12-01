@@ -23,4 +23,16 @@ export class UserService {
   getAll() {
     return this.http.get<User[]>(`${this.config.apiURL}/users`);
   }
+
+  getById(id: string) {
+    return this.http.get<User>(`${this.config.apiURL}/user/${id}`);
+  }
+
+  update(user: User) {
+    return this.http.put(`${this.config.apiURL}/user`, user);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.config.apiURL}/users/${id}`);
+  }
 }
