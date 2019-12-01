@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent,
-         LandingComponent,
+import { LandingComponent,
          AdminDashboardComponent } from './_components';
 
 import { AuthGuard } from './_guards';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
   { path: 'landing', component: LandingComponent },
   { path: 'admin-dashboard',
     component: AdminDashboardComponent,
