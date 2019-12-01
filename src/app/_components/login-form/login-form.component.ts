@@ -33,14 +33,14 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.initForm();
+    this.initActiveFormAnimation();
     this.initLoginFormValidator();
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
-  initForm() {
+  initActiveFormAnimation() {
     $(() => {
       $('#login-form-link').click(function(e) {
         $('#login-form').delay(100).fadeIn(100);
